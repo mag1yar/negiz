@@ -1,19 +1,46 @@
 {
   "name": "@negiz/compound",
+  "private": false,
   "version": "0.1.0",
+  "description": "A utility for creating compound components with full TypeScript type safety",
+  "keywords": [
+    "react",
+    "compound-components",
+    "typescript",
+    "ui",
+    "components",
+    "react-patterns",
+    "composition",
+    "compound-pattern"
+  ],
+  "author": "Amangaliyev Magiyar <magiyar.aman@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mag1yar/negiz/issues"
+  },
+  "homepage": "https://github.com/mag1yar/negiz/tree/main/packages/compound",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mag1yar/negiz.git",
+    "directory": "packages/compound"
+  },
   "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "sideEffects": false,
   "scripts": {
+    "prepublishOnly": "pnpm run build",
     "build": "rslib build",
     "dev": "rslib build --watch",
     "format": "prettier --write .",
@@ -41,6 +68,5 @@
   "peerDependencies": {
     "react": ">=19.0.0",
     "react-dom": ">=19.0.0"
-  },
-  "private": false
+  }
 }
