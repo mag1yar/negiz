@@ -3,12 +3,12 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const organizationName = 'mag1yar';
-const projectName = 'typesafe';
-const title = 'TypeSafe';
+const projectName = 'negiz';
+const title = 'Negiz';
 
 const config: Config = {
   title,
-  tagline: 'Type-safe validation and transformation library for TypeScript',
+  tagline: 'Adaptive React UI Components Ecosystem',
   favicon: 'img/favicon.ico',
 
   url: `https://${organizationName}.github.io`,
@@ -51,12 +51,13 @@ const config: Config = {
     metadata: [
       {
         name: 'keywords',
-        content: 'typescript, validation, schema, type-safety, data transformation, forms',
+        content:
+          'react, ui components, adaptive, responsive, compound components, polymorphic, zustand, context, grid, collection, layer management',
       },
       {
         name: 'description',
         content:
-          'TypeSafe is a library for TypeScript that provides runtime validation, type inference, and data transformation with a simple API.',
+          'Negiz is a modern React UI ecosystem featuring adaptive components, intelligent layout systems, and context-driven state management. Build responsive interfaces that adapt to container sizes, not just screen sizes.',
       },
       { name: 'author', content: organizationName },
     ],
@@ -75,11 +76,11 @@ const config: Config = {
           label: 'GitHub',
           position: 'right',
         },
-        // {
-        //   href: `https://npmjs.com/package/@${organizationName}/${projectName}`,
-        //   label: 'npm',
-        //   position: 'right',
-        // },
+        {
+          href: `https://npmjs.com/org/${organizationName}`,
+          label: 'npm',
+          position: 'right',
+        },
       ],
     },
     // footer: {
@@ -101,10 +102,39 @@ const config: Config = {
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'SoftwareApplication',
-        name: 'TypeSafe',
+        name: 'Negiz',
         applicationCategory: 'DeveloperApplication',
-        description: 'Type-safe validation and transformation library for TypeScript',
+        description:
+          'Adaptive React UI Components Ecosystem with container-based responsive design, compound components, and intelligent state management.',
+        programmingLanguage: ['TypeScript', 'JavaScript'],
+        author: {
+          '@type': 'Organization',
+          name: 'Negiz',
+          url: `https://github.com/${organizationName}`,
+        },
       }),
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:type',
+        content: 'website',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:title',
+        content: 'Negiz - Adaptive React UI Components',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:description',
+        content:
+          'Modern React UI ecosystem with container-based responsive design and intelligent component architecture.',
+      },
     },
   ],
 };

@@ -32,11 +32,11 @@ const sidebars: SidebarsConfig = {
     //     'guides/error-handling',
     //   ],
     // },
-    // {
-    //   type: 'category',
-    //   label: 'Middlewares',
-    //   items: ['middlewares/persist'],
-    // },
+    {
+      type: 'category',
+      label: 'Utilities',
+      items: ['utils/compound'],
+    },
     // {
     //   type: 'category',
     //   label: 'API Reference',
