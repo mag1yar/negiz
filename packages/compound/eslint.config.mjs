@@ -1,12 +1,15 @@
-import js from '@eslint/js';
-import globals from 'globals';
-import ts from 'typescript-eslint';
 import { reactConfig } from '@repo/eslint-config/react-internal';
 
 export default [
   ...reactConfig,
-  { languageOptions: { globals: globals.browser } },
-  js.configs.recommended,
-  ...ts.configs.recommended,
+  {
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off', // Library code often needs any for generic components
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_' },
+      ],
+    },
+  },
   { ignores: ['dist/'] },
 ];

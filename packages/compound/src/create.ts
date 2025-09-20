@@ -1,4 +1,4 @@
-import { createElement } from 'react';
+import { type ComponentProps, type ComponentType, createElement } from 'react';
 import type { CompoundComponent, CompoundOptions } from './types';
 
 /**
@@ -18,11 +18,17 @@ import type { CompoundComponent, CompoundOptions } from './types';
  *   Body: CardBody,
  *   Footer: CardFooter
  * }, { displayName: 'Card' });
+ *
+ * // Usage
+ * <Card>
+ *   <Card.Header>Title</Card.Header>
+ *   <Card.Body>Content</Card.Body>
+ * </Card>
  * ```
  */
 export function createCompound<
-  TRoot extends React.ComponentType<any>,
-  TChildren extends Record<string, React.ComponentType<any>>,
+  TRoot extends ComponentType<any>,
+  TChildren extends Record<string, ComponentType<any>>,
 >(
   rootComponent: TRoot,
   childrenComponents: TChildren,
@@ -30,14 +36,10 @@ export function createCompound<
 ): CompoundComponent<TRoot, TChildren> {
   const { displayName } = options;
 
-  const CompoundRoot = ((props: React.ComponentProps<TRoot>) =>
+  const CompoundRoot = ((props: ComponentProps<TRoot>) =>
     createElement(rootComponent, props)) as CompoundComponent<TRoot, TChildren>;
 
   if (displayName) CompoundRoot.displayName = displayName;
 
-  Object.keys(childrenComponents).forEach((key) => {
-    (CompoundRoot as any)[key] = childrenComponents[key];
-  });
-
-  return CompoundRoot;
+  return Object.assign(CompoundRoot, childrenComponents);
 }

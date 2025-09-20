@@ -206,6 +206,7 @@ describe('createCompound', () => {
 
   describe('TypeScript types', () => {
     it('should maintain correct TypeScript types', () => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const CompoundTest = createCompound(TestRoot, {
         Header: TestHeader,
         Body: TestBody,
@@ -226,6 +227,10 @@ describe('createCompound', () => {
       // This is a compile-time check
       const _typeCheck: CompoundType = {} as ExpectedType;
       const _reverseTypeCheck: ExpectedType = {} as CompoundType;
+
+      // Suppress unused variable warnings
+      void _typeCheck;
+      void _reverseTypeCheck;
 
       expect(true).toBe(true); // Just to have an assertion
     });
